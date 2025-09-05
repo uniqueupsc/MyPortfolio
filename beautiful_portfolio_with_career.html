@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surya Chandra — Portfolio & Career</title>
+  <meta name="description" content="Portfolio and career timeline for BEERAM SURYA CHANDRA — AI / Software / Robotics" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa8bf; --accent:#4fd1c5; --accent-2:#60a5fa; --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius:14px; --shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#e6eefc;background: radial-gradient(900px 600px at 10% -10%, #0b1830 0%, var(--bg) 35%), linear-gradient(180deg, rgba(255,255,255,0.02), transparent);-webkit-font-smoothing:antialiased;}
+    .container{max-width:1100px;margin:0 auto;padding:1.25rem}
+
+    /* Header */
+    header.site-header{position:sticky;top:12px;z-index:40;padding:0.6rem 0}
+    .nav{display:flex;align-items:center;gap:1rem;justify-content:space-between}
+    .brand{font-weight:800;font-size:1.1rem;color:var(--accent-2);text-decoration:none}
+    nav .links{display:flex;gap:0.75rem;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:0.45rem 0.6rem;border-radius:8px}
+    nav a:hover{color:white;background:var(--glass)}
+    .theme-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:0.45rem;border-radius:10px;color:var(--muted);cursor:pointer}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center;padding:2.1rem 0}
+    .hello{font-size:0.95rem;color:var(--accent);font-weight:700;letter-spacing:0.12em}
+    h1{font-family:'Space Grotesk', Inter, sans-serif;font-size:2.4rem;margin:0 0 0.5rem}
+    p.lead{color:var(--muted);max-width:56ch;margin:0 0 1rem}
+    .cta{display:flex;gap:0.6rem;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.6rem 0.9rem;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);color:#fff;text-decoration:none}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 8px 28px rgba(79,209,197,0.12);}
+
+    /* Profile card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:var(--radius);padding:1.2rem;border:1px solid rgba(255,255,255,0.04);box-shadow:var(--shadow)}
+    .avatar{width:88px;height:88px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-weight:800;font-size:1.35rem;color:#06202a;margin-bottom:0.75rem}
+    .meta{color:var(--muted);font-size:0.95rem}
+
+    /* Sections */
+    section{padding:2.2rem 0}
+    section h2{margin:0 0 0.8rem;font-size:1.35rem}
+    .grid{display:grid;gap:1rem}
+
+    /* Career timeline */
+    .timeline{position:relative;padding-left:1.2rem}
+    .timeline:before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent-2));border-radius:2px;opacity:0.9}
+    .step{position:relative;padding:1rem 1rem 1rem 2.2rem;background:var(--glass-2);border-radius:12px;border:1px solid rgba(255,255,255,0.02);display:flex;flex-direction:column;gap:0.5rem}
+    .step + .step{margin-top:0.9rem}
+    .dot{position:absolute;left:-2.5rem;top:calc(50% - 12px);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:3px solid var(--accent);font-weight:700}
+    .step .title{font-weight:700}
+    .step .meta{color:var(--muted);font-size:0.9rem}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .project{padding:1rem;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.018), transparent);border:1px solid rgba(255,255,255,0.03)}
+    .project h3{margin:0 0 0.35rem}
+    .badges{display:flex;gap:0.45rem;flex-wrap:wrap}
+    .badge{padding:0.28rem 0.5rem;border-radius:999px;font-size:0.85rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+
+    /* Skills */
+    .skills{display:flex;flex-wrap:wrap;gap:0.5rem}
+    .skill{padding:0.45rem 0.7rem;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:1rem}
+    form.field{display:flex;flex-direction:column;gap:0.5rem}
+    input,textarea{padding:0.7rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+
+    footer{padding:2rem 0;text-align:center;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.projects{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}.card{padding:1rem}}
+    @media (max-width:620px){.projects{grid-template-columns:1fr}.nav .links{display:none}}
+
+    /* Small animation */
+    .reveal{transform:translateY(12px);opacity:0;transition:all 600ms cubic-bezier(.2,.9,.2,1)}
+    .reveal.show{transform:none;opacity:1}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <div class="nav">
+        <a class="brand" href="#">SC • Surya Chandra</a>
+        <div class="links">
+          <a href="#about">About</a>
+          <a href="#career">Career</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <button class="theme-btn" id="themeToggle">🌙</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="hello">Hi — I build things with code & AI</p>
+          <h1>BEERAM SURYA CHANDRA</h1>
+          <p class="lead">Civil engineer by degree, software & AI enthusiast by passion. I build accessible web apps, NLP tools and experiment with robotics. Seeking roles in ML engineering, applied NLP or robotics software.</p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">See my work</a>
+            <a class="btn" href="#career">My career</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+          <div style="margin-top:1rem;color:var(--muted);font-size:0.95rem">
+            <strong>Email:</strong> <a href="mailto:hello@example.com" style="color:inherit">hello@example.com</a> • <strong>Location:</strong> India
+          </div>
+        </div>
+
+        <aside class="card" aria-labelledby="profileTitle">
+          <div class="avatar">SC</div>
+          <h3 id="profileTitle">Software & AI</h3>
+          <div class="meta">7+ years professional experience • Transitioning from Civil → AI</div>
+          <hr style="margin:0.9rem 0;border-color:rgba(255,255,255,0.03)">
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
+            <a class="btn" href="#contact">Let's talk</a>
+            <a class="btn" href="#projects">View projects</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <h2>About</h2>
+        <div class="card" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div>
+            <p style="color:var(--muted);margin:0 0 0.5rem">I combine engineering discipline with software craft. My recent focus is on building production-ready NLP pipelines, small LLM-powered tools and robotics simulations. I enjoy teaching myself new frameworks and shipping working demos.</p>
+            <ul style="color:var(--muted);margin:0;padding-left:1rem">
+              <li>Python, JS, React, Flask</li>
+              <li>Machine Learning, NLP, Transformers</li>
+              <li>Robot kinematics basics, path planning</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="margin:0 0 0.4rem">Quick facts</h4>
+            <div style="color:var(--muted)">Open to: Full-time roles, remote contracts • Languages: English, Telugu</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="career">
+        <h2>Career timeline</h2>
+        <div class="timeline">
+          <!-- Repeat steps: edit dates, titles, description -->
+          <div class="step reveal">
+            <div class="dot">23</div>
+            <div class="title">Master's in Artificial Intelligence — (planned)</div>
+            <div class="meta">Jan 2026 — Jan 2027 • University (expected)</div>
+            <div class="desc" style="color:var(--muted)">Pursuing advanced coursework in ML, robotics and LLM applications. Focus: applied NLP and robots perception.</div>
+          </div>
+
+          <div class="step reveal">
+            <div class="dot">21</div>
+            <div class="title">AI / ML Side Projects & Open Source</div>
+            <div class="meta">2023 — Present</div>
+            <div class="desc" style="color:var(--muted)">Building NLP tools (resume parser, intent extractor), small LLM apps and contributing to ML OSS projects. Deploy demos on GitHub Pages.</div>
+          </div>
+
+          <div class="step reveal">
+            <div class="dot">17</div>
+            <div class="title">Civil Engineer — Site & Project Work</div>
+            <div class="meta">2017 — 2022</div>
+            <div class="desc" style="color:var(--muted)">Worked on civil engineering projects, developed strong problem solving and project management skills. Transitioned towards software through self-study.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Selected projects</h2>
+        <div class="projects">
+          <article class="project reveal">
+            <h3>NLP Resume Parser</h3>
+            <div class="meta">spaCy + transformers pipeline to extract entities and skills.</div>
+            <div class="badges" style="margin-top:0.8rem">
+              <span class="badge">Python</span><span class="badge">spaCy</span><span class="badge">Transformers</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <h3>Robotics Path Visualizer</h3>
+            <div class="meta">Canvas-based visualizer for A*/RRT algorithms and collisions.</div>
+            <div class="badges" style="margin-top:0.8rem">
+              <span class="badge">JavaScript</span><span class="badge">Algorithms</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <h3>LLM Chatbot (Demo)</h3>
+            <div class="meta">Frontend demo integrating an LLM with a small memory layer.</div>
+            <div class="badges" style="margin-top:0.8rem">
+              <span class="badge">React</span><span class="badge">OpenAI</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="card">
+          <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">Machine Learning</span>
+            <span class="skill">NLP</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React</span>
+            <span class="skill">Git & GitHub</span>
+            <span class="skill">Docker (basic)</span>
+            <span class="skill">Robotics basics</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-grid">
+          <form class="field card" id="contactForm">
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your name" required />
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="you@example.com" required />
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Short message..." required></textarea>
+            <div style="display:flex;gap:0.5rem;justify-content:flex-end;margin-top:0.4rem">
+              <button class="btn primary" type="submit">Send message</button>
+            </div>
+            <div style="color:var(--muted);font-size:0.9rem;margin-top:0.6rem">This demo form logs to console — replace with Formspree, Supabase, or Netlify forms.</div>
+          </form>
+
+          <aside class="card" style="height:100%">
+            <h3>Let's connect</h3>
+            <p class="meta">I typically reply within a few days. For faster replies, add a subject line like "Job enquiry" or "Project collaboration".</p>
+            <div style="margin-top:1rem">
+              <div style="color:var(--muted);font-size:0.95rem"><strong>Email:</strong> hello@example.com</div>
+              <div style="color:var(--muted);font-size:0.95rem;margin-top:0.6rem"><strong>GitHub:</strong> <a href="#" style="color:inherit">github.com/your-username</a></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="color:var(--muted)">© <span id="year"></span> BEERAM SURYA CHANDRA — Built with ❤️</div>
+    </footer>
+  </div>
+
+  <script>
+    // ---------- Editable profile data (change these values) ----------
+    const PROFILE = {
+      name: 'BEERAM SURYA CHANDRA',
+      email: 'hello@example.com',
+      github: 'https://github.com/<your-username>'
+    };
+
+    // small helpers: reveal on scroll
+    function revealOnScroll(){
+      document.querySelectorAll('.reveal').forEach(el=>{
+        const r = el.getBoundingClientRect();
+        if(r.top < (window.innerHeight - 60)) el.classList.add('show');
+      });
+    }
+
+    // theme toggle
+    const themeBtn = document.getElementById('themeToggle');
+    function setTheme(t){
+      if(t==='light') document.documentElement.style.setProperty('--bg','#fbfbfd');
+      localStorage.setItem('theme',t);
+    }
+    themeBtn.addEventListener('click',()=>{
+      const current = localStorage.getItem('theme')||'dark';
+      if(current==='dark'){setTheme('light');themeBtn.textContent='☀️';}
+      else{setTheme('dark');themeBtn.textContent='🌙';}
+    });
+
+    // contact form demo
+    document.getElementById('contactForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      console.log('Contact submission (demo):',data);
+      alert('Thanks! This is a demo. Replace the form handler to receive messages.');
+      e.target.reset();
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', ()=>{revealOnScroll(); if(!localStorage.getItem('theme')) localStorage.setItem('theme','dark');});
+  </script>
+</body>
+</html>
